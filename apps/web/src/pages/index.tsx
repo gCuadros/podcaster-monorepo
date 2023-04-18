@@ -1,10 +1,5 @@
-import {} from "ui";
-import Main from "ui/Main";
+import { Text } from "@chakra-ui/react";
 
-export default function Web() {
-  return (
-    <Main>
-      <h1>Web</h1>
-    </Main>
-  );
-}
+const Page = () => <Text>Hola</Text>;
+
+export default Page;

@@ -2,6 +2,7 @@ module.exports = {
   extends: ["next", "turbo", "prettier"],
   rules: {
     "no-console": 2,
+    "unused-imports/no-unused-imports": "error",
     "@next/next/no-html-link-for-pages": "off",
     "@typescript-eslint/no-unused-vars": "error",
     "@typescript-eslint/no-explicit-any": "error",
