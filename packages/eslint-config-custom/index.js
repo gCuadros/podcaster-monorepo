@@ -1,5 +1,6 @@
 module.exports = {
   extends: ["next", "turbo", "prettier"],
+  plugins: ["unused-imports", "import"],
   rules: {
     "no-console": 2,
     "unused-imports/no-unused-imports": "error",
