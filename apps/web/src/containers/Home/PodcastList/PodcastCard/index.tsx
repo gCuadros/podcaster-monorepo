@@ -31,7 +31,7 @@ const PodcastCard = ({ podcast }: Props) => {
           maxWidth="70px"
         />
         <Text
-          fontSize="14px"
+          fontSize="12px"
           fontWeight={600}
           marginTop={6}
           noOfLines={1}
