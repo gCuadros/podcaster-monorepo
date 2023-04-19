@@ -5,7 +5,7 @@ const Main = ({ children }: StackProps) => {
     <Stack
       width="full"
       height={{ base: "100vh", md: "auto" }}
-      maxW="920px"
+      maxW="980px"
       margin="0 auto"
       bg="#FFFFFF"
     >

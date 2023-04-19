@@ -2,6 +2,7 @@ import { Text, VStack } from "@chakra-ui/react";
 import { usePodcasts } from "api/hooks/podcasts/usePodcasts";
 import { useMemo } from "react";
 import { EntryDto } from "types";
+import PodcastList from "./PodcastList";
 
 const Home = () => {
   const { data: podcasts } = usePodcasts({});
@@ -11,10 +12,8 @@ const Home = () => {
     [podcasts]
   );
   return (
-    <VStack>
-      {podcastItems?.map(podcast => (
-        <Text fontSize="12px">{podcast.title.label}</Text>
-      ))}
+    <VStack padding={12} backgroundColor="white" borderRadius="8px">
+      <PodcastList podcasts={podcastItems} />
     </VStack>
   );
 };
