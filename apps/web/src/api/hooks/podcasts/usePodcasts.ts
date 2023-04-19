@@ -1,9 +1,10 @@
 import { QueryFunctionContext, useQuery } from "@tanstack/react-query";
 import { fetcher } from "api/fetcher";
+import { FindAllPodcast, PodcastDto } from "types";
 
 import { merge } from "utils/merge";
 
-type Props = any;
+type Props = FindAllPodcast["request"];
 
 const defaultProps: Props = {
   query: {
@@ -27,7 +28,7 @@ export const fetchPodcasts = async ({
 }: QueryFunctionContext<ReturnType<typeof podcastsKey>>) => {
   const { limit, genre } = query;
 
-  const response: any = await fetcher(
+  const response: FindAllPodcast["response"] = await fetcher(
     `/us/rss/toppodcasts/limit=${String(limit)}/genre=${String(genre)}/json`
   );
   return JSON.parse(response.contents);

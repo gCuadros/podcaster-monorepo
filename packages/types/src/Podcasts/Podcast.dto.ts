@@ -1,15 +1,13 @@
-import { ContentsDto } from "./Contents/Content.dto";
-import { FeedDto } from "./Feed/Feed.dto";
 import { StatusDto } from "./Status/Status.dto";
 
 export interface PodcastDto {
-  contents: ContentsDto;
+  contents: string;
   status: StatusDto;
 }
 
 export interface FindAllPodcast {
   request: {
-    query: {
+    query?: {
       limit?: number;
       genre?: number;
     };

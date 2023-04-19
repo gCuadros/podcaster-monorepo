@@ -1,5 +1,5 @@
 {
-  "name": "@podcaster/types",
+  "name": "types",
   "main": "index.ts",
   "types": "index.ts",
   "scripts": {
