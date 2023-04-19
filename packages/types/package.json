@@ -1,0 +1,17 @@
+{
+  "name": "@podcaster/types",
+  "main": "index.ts",
+  "types": "index.ts",
+  "scripts": {
+    "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist"
+  },
+  "dependencies": {
+    "qs": "^6.11.0"
+  },
+  "devDependencies": {
+    "eslint-config-custom": "*",
+    "eslint": "^7.32.0",
+    "tsconfig": "*",
+    "typescript": "4.7.4"
+  }
+}

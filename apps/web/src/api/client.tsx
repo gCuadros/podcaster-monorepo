@@ -15,6 +15,7 @@ export const client = new QueryClient({
       refetchOnMount: true,
       refetchOnReconnect: true,
       refetchOnWindowFocus: true,
+      notifyOnChangeProps: "all",
     },
   },
   queryCache: new QueryCache({

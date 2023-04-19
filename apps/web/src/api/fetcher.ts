@@ -1,16 +1,19 @@
 import { PodcasterError } from "./error";
 
-const API_BASE = process.env.NEXT_PUBLIC_API_URL;
-
 export const fetcher = async (url: string, init?: RequestInit) => {
-  const res = await fetch(`${API_BASE}${url}`, {
-    ...init,
-    headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json",
-      ...init?.headers,
-    },
-  });
+  const res = await fetch(
+    `https://api.allorigins.win/get?url=${encodeURIComponent(
+      `https://itunes.apple.com${url}`
+    )}`,
+    {
+      ...init,
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        ...init?.headers,
+      },
+    }
+  );
 
   if (!res.ok) {
     const message = await res.json();

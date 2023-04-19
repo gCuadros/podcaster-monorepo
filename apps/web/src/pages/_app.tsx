@@ -5,6 +5,7 @@ import Layout from "components/Layout";
 import { AppProps } from "next/app";
 import { useState } from "react";
 import theme from "ui/theme";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [queryClient] = useState(() => client);
@@ -15,6 +16,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <Layout>
           <Component {...pageProps} />
         </Layout>
+        <ReactQueryDevtools initialIsOpen={false} />
       </QueryClientProvider>
     </ChakraProvider>
   );
