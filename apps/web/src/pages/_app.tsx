@@ -1,14 +1,21 @@
 import { ChakraProvider } from "@chakra-ui/react";
+import { QueryClientProvider } from "@tanstack/react-query";
+import { client } from "api/client";
 import Layout from "components/Layout";
 import { AppProps } from "next/app";
+import { useState } from "react";
 import theme from "ui/theme";
 
 function MyApp({ Component, pageProps }: AppProps) {
+  const [queryClient] = useState(() => client);
+
   return (
     <ChakraProvider theme={theme}>
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
+      <QueryClientProvider client={queryClient}>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </QueryClientProvider>
     </ChakraProvider>
   );
 }
