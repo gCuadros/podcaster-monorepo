@@ -19,12 +19,7 @@ const Home = () => {
   const isEmpty = !isPodcastLoading && podcasts?.length === 0;
 
   return (
-    <VStack
-      padding={12}
-      backgroundColor="white"
-      borderRadius="8px"
-      spacing={16}
-    >
+    <VStack padding={4} backgroundColor="white" borderRadius="8px" spacing={16}>
       <HStack width="100%" justifyContent="flex-end">
         <HStack>
           <Badge

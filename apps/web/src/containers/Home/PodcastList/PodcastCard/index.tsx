@@ -22,7 +22,7 @@ const PodcastCard = ({ podcast }: Props) => {
   return (
     <Link
       as={NextLink}
-      href={`/podcast/${podcast.id}`}
+      href={`/podcast/${podcast.id.attributes["im:id"]}`}
       _hover={{ textDecoration: "none" }}
     >
       <Card

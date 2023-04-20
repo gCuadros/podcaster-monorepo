@@ -14,7 +14,13 @@ const Header = () => {
 
   return (
     <Main>
-      <HStack paddingX={4} paddingY={2} backgroundColor="white">
+      <HStack
+        paddingX={4}
+        paddingY={2}
+        backgroundColor="white"
+        borderBottom="1px solid"
+        borderColor="gray.100"
+      >
         <Link as={NextLink} href="/" display="flex" alignItems="center" gap={2}>
           <Box boxSize="25px" borderRadius="50%">
             <Image src="/assets/logo.png" alt="logo" />
