@@ -11,7 +11,7 @@ export interface FindAllPodcast {
       limit?: number;
       genre?: number;
     };
-    filter?: { search: string };
+    filter?: { search?: string; id?: string };
   };
   response: PodcastsDto;
 }

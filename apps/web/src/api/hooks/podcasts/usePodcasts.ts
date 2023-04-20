@@ -57,3 +57,17 @@ export const usePodcastsFilterOnClient = (props: Props) =>
       return filteredPodcasts;
     },
   });
+
+export const usePodcastsFilterById = (props: Props) =>
+  useQuery({
+    queryKey: podcastsKey(props),
+    queryFn: fetchPodcasts,
+    select: (data: ContentsDto) => {
+      const filteredPodcasts = data?.feed?.entry.find(
+        podcast => podcast.id.attributes["im:id"] === props.filter.id
+      );
+
+      return filteredPodcasts;
+    },
+    enabled: !!props.filter.id,
+  });

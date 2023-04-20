@@ -1,19 +1,22 @@
 import NextLink from "next/link";
 import {
   HStack,
-  Card as ChakraCard,
+  Card,
   Text,
   VStack,
   CardBody,
+  Stack,
+  useBreakpointValue,
 } from "@chakra-ui/react";
 import { usePodcastDetailsById } from "api/hooks/podcasts/usePodcastDetailsById";
 import { useSlugsParams } from "api/hooks/slug";
 import { EpisodeDto } from "types";
 import { useMemo } from "react";
-import Card from "./Card";
-import Table from "./Table";
+import DetailCard from "./DetailCard";
+import EpisodesTable from "./EpisodesTable";
 
 const Podcast = () => {
+  const isMobile = useBreakpointValue({ base: true, md: false });
   const { podcastId } = useSlugsParams();
   const { data: podcast, isLoading: isPodcastLoading } = usePodcastDetailsById({
     query: { podcastId },
@@ -30,30 +33,35 @@ const Podcast = () => {
   const isEmpty = !isPodcastLoading && podcastEpisodes?.length === 0;
 
   return (
-    <HStack
+    <Stack
+      flexDirection={isMobile ? "column" : "row"}
       padding={4}
       justifyContent="space-between"
       alignItems="flex-start"
       width="100%"
-      gap={12}
+      gap={8}
     >
-      <Card />
-      <VStack width="100%" spacing={4}>
-        <ChakraCard width="100%">
+      <DetailCard
+        podcastId={podcastId}
+        width="100%"
+        maxW={isMobile ? "100%" : "300px"}
+      />
+      <VStack width="100%" maxWidth="645px" spacing={4}>
+        <Card width="100%">
           <CardBody padding={2}>
             <Text fontSize="14px" fontWeight={600}>
               Episodes: {podcastTotalEpisodes}
             </Text>
           </CardBody>
-        </ChakraCard>
-        <Table
+        </Card>
+        <EpisodesTable
           podcastId={podcastId}
           podcastEpisodes={podcastEpisodes}
           isLoading={isLoading}
           isEmpty={isEmpty}
         />
       </VStack>
-    </HStack>
+    </Stack>
   );
 };
 

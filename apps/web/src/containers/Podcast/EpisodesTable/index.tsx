@@ -1,7 +1,7 @@
 import {
   Card,
   CardBody,
-  Table as ChakraTable,
+  Table,
   Link,
   Skeleton,
   TableContainer,
@@ -12,6 +12,8 @@ import {
   Th,
   Thead,
   Tr,
+  Text,
+  Tooltip,
 } from "@chakra-ui/react";
 import { EpisodeDto } from "types";
 import NextLink from "next/link";
@@ -23,7 +25,12 @@ interface Props extends TableProps {
   isLoading?: boolean;
   isEmpty?: boolean;
 }
-const Table = ({ podcastId, podcastEpisodes, isLoading, isEmpty }: Props) => {
+const EpisodesTable = ({
+  podcastId,
+  podcastEpisodes,
+  isLoading,
+  isEmpty,
+}: Props) => {
   const formatDate = (dateInMs: string) => {
     const { day, month, year } = getDateInfo(dateInMs);
 
@@ -42,7 +49,7 @@ const Table = ({ podcastId, podcastEpisodes, isLoading, isEmpty }: Props) => {
     <Card width="100%">
       <CardBody padding={2}>
         <TableContainer>
-          <ChakraTable
+          <Table
             size="sm"
             variant="striped"
             colorScheme={isLoading ? "simple" : "gray"}
@@ -57,20 +64,30 @@ const Table = ({ podcastId, podcastEpisodes, isLoading, isEmpty }: Props) => {
             <Tbody>
               {!isLoading
                 ? podcastEpisodes?.map(episode => (
-                    <Tr key={episode.trackId}>
-                      <Td textAlign="start">
+                    <Tr key={episode.trackId} border="none">
+                      <Td textAlign="start" maxWidth="425px">
                         <Link
                           as={NextLink}
                           href={`/podcast/${podcastId}/episode/${episode.trackId}`}
-                          display="block"
-                          width="100%"
+                          transition="0.3s all ease"
+                          _hover={{ textDecoration: "none", opacity: "0.6" }}
                         >
-                          {episode.trackName}
+                          <Tooltip
+                            label={episode.trackName}
+                            aria-label="name of episode"
+                          >
+                            <Text noOfLines={1} display="block">
+                              {episode.trackName}
+                            </Text>
+                          </Tooltip>
                         </Link>
                       </Td>
-                      <Td textAlign="end">{formatDate(episode.releaseDate)}</Td>
                       <Td textAlign="end">
-                        {formatTimeInMs(episode.trackTimeMillis)}
+                        {episode.releaseDate && formatDate(episode.releaseDate)}
+                      </Td>
+                      <Td textAlign="end">
+                        {episode.trackTimeMillis &&
+                          formatTimeInMs(episode.trackTimeMillis)}
                       </Td>
                     </Tr>
                   ))
@@ -88,11 +105,11 @@ const Table = ({ podcastId, podcastEpisodes, isLoading, isEmpty }: Props) => {
                     </Tr>
                   ))}
             </Tbody>
-          </ChakraTable>
+          </Table>
         </TableContainer>
       </CardBody>
     </Card>
   );
 };
 
-export default Table;
+export default EpisodesTable;
