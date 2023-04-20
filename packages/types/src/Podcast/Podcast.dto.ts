@@ -10,6 +10,7 @@ export interface FindPodcast {
     query?: {
       podcastId?: string;
     };
+    filter?: { id?: string };
   };
   response: PodcastDto;
 }

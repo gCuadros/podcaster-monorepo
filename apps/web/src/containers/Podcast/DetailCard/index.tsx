@@ -17,7 +17,7 @@ interface Props extends CardProps {
   podcastId: string;
 }
 
-const DetailCard = ({ podcastId }: Props) => {
+const DetailCard = ({ podcastId, ...props }: Props) => {
   const {
     data: podcastDetail,
     isLoading,
@@ -34,12 +34,12 @@ const DetailCard = ({ podcastId }: Props) => {
     return <Skeleton width="350px" height="500px" borderRadius="8px" />;
 
   return (
-    <Card>
+    <Card {...props}>
       <CardBody>
         <VStack>
           <Image
             src={podcastDetail["im:image"][0].label}
-            alt="Green double couch with wooden legs"
+            alt={podcastDetail.title.label}
             borderRadius="lg"
             boxSize="200px"
           />

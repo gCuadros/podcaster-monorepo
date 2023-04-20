@@ -1,6 +1,11 @@
 import { QueryFunctionContext, useQuery } from "@tanstack/react-query";
 import { fetcher } from "api/fetcher";
-import { FindAllPodcast, FindPodcast, PodcastContentsDto } from "types";
+import {
+  EpisodeContentsDto,
+  FindAllPodcast,
+  FindPodcast,
+  PodcastContentsDto,
+} from "types";
 
 type Props = FindPodcast["request"];
 
@@ -30,4 +35,18 @@ export const usePodcastDetailsById = (props: Props) =>
     queryKey: podcastDetailKey(props),
     queryFn: fetchPodcastDetail,
     enabled: !!props.query.podcastId,
+  });
+
+export const usePodcastFilterEpisodeById = (props: Props) =>
+  useQuery({
+    queryKey: podcastDetailKey(props),
+    queryFn: fetchPodcastDetail,
+    select: (data: EpisodeContentsDto) => {
+      const filteredEpisode = data?.results.find(
+        episode => String(episode.trackId) === props.filter.id
+      );
+
+      return filteredEpisode;
+    },
+    enabled: !!props.query.podcastId && !!props.filter.id,
   });

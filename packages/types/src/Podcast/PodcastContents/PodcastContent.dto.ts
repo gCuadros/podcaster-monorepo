@@ -1,4 +1,4 @@
-import { EpisodeDto } from "../Episode/Episodie.dto";
+import { EpisodeDto } from "../Episode/Episode.dto";
 
 export interface PodcastContentsDto {
   resultCount: number;
