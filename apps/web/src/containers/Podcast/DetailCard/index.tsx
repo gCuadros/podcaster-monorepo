@@ -9,15 +9,17 @@ import {
   VStack,
   CardProps,
   Skeleton,
+  Link,
 } from "@chakra-ui/react";
 import { usePodcastsFilterById } from "api/hooks/podcasts/usePodcasts";
-import { PodcastContentsDto } from "types";
+import NextLink from "next/link";
 
 interface Props extends CardProps {
   podcastId: string;
+  isLink?: boolean;
 }
 
-const DetailCard = ({ podcastId, ...props }: Props) => {
+const DetailCard = ({ podcastId, isLink, ...props }: Props) => {
   const {
     data: podcastDetail,
     isLoading,
@@ -37,15 +39,38 @@ const DetailCard = ({ podcastId, ...props }: Props) => {
     <Card {...props}>
       <CardBody>
         <VStack>
-          <Image
-            src={podcastDetail["im:image"][0].label}
-            alt={podcastDetail.title.label}
-            borderRadius="lg"
-            boxSize="200px"
-          />
+          {isLink ? (
+            <Link as={NextLink} href={`/podcast/${podcastId}`}>
+              <Image
+                src={podcastDetail["im:image"][0].label}
+                alt={podcastDetail.title.label}
+                borderRadius="lg"
+                boxSize="200px"
+              />
+            </Link>
+          ) : (
+            <Image
+              src={podcastDetail["im:image"][0].label}
+              alt={podcastDetail.title.label}
+              borderRadius="lg"
+              boxSize="200px"
+            />
+          )}
+
           <Divider />
           <Stack padding={2} justifyContent="flex-start" width="100%">
-            <Heading size="sm">{podcastDetail.title.label}</Heading>
+            {isLink ? (
+              <Link
+                as={NextLink}
+                href={`/podcast/${podcastId}`}
+                transition="0.3s ease all"
+                _hover={{ textDecoration: "none", opacity: "0.6" }}
+              >
+                <Heading size="sm">{podcastDetail.title.label}</Heading>
+              </Link>
+            ) : (
+              <Heading size="sm">{podcastDetail.title.label}</Heading>
+            )}
             <Text fontSize="12px">by {podcastDetail["im:artist"].label}</Text>
           </Stack>
           <Divider />
