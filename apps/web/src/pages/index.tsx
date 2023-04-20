@@ -1,12 +1,7 @@
-import NextLink from "next/link";
-import { Link, Text } from "@chakra-ui/react";
+import Home from "containers/Home";
 
 const Page = () => {
-  return (
-    <Link as={NextLink} href="/one">
-      <Text>One</Text>
-    </Link>
-  );
+  return <Home />;
 };
 
 export default Page;

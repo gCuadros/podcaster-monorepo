@@ -25,11 +25,10 @@
     "turbo": "latest"
   },
   "dependencies": {
-    "@chakra-ui/react": "^2.5.5",
-    "@emotion/react": "^11.10.6",
-    "@emotion/styled": "^11.10.6",
     "@fontsource/roboto": "^4.5.8",
     "@fontsource/urbanist": "^4.5.17",
-    "framer-motion": "^10.12.4"
+    "@tanstack/react-query-devtools": "^4.29.3",
+    "lodash": "^4.17.21",
+    "react-icons": "^4.8.0"
   }
 }
