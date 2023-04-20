@@ -1,12 +1,7 @@
-import NextLink from "next/link";
-import { Link, Text } from "@chakra-ui/react";
+import Podcast from "containers/Podcast";
 
 const Page = () => {
-  return (
-    <Link as={NextLink} href="/">
-      <Text>Podcast Detail</Text>
-    </Link>
-  );
+  return <Podcast />;
 };
 
 export default Page;

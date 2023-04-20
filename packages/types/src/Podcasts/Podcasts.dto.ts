@@ -1,6 +1,6 @@
-import { StatusDto } from "./Status/Status.dto";
+import { StatusDto } from "../Status/Status.dto";
 
-export interface PodcastDto {
+export interface PodcastsDto {
   contents: string;
   status: StatusDto;
 }
@@ -11,7 +11,7 @@ export interface FindAllPodcast {
       limit?: number;
       genre?: number;
     };
-    filter?: { search: string };
+    filter?: { search?: string; id?: string };
   };
-  response: PodcastDto;
+  response: PodcastsDto;
 }

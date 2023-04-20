@@ -38,9 +38,14 @@ const PodcastList = ({
       {...props}
     >
       {!isLoading
-        ? podcasts?.map(podcast => <PodcastCard podcast={podcast} />)
-        : [...Array(50)].map((_, i) => (
-            <Box position="relative">
+        ? podcasts?.map(podcast => (
+            <PodcastCard
+              key={podcast.id.attributes["im:id"]}
+              podcast={podcast}
+            />
+          ))
+        : [...Array(50)].map((_, index) => (
+            <Box key={index} position="relative">
               <SkeletonCircle
                 opacity="1"
                 size="70"
@@ -49,7 +54,7 @@ const PodcastList = ({
                 left="50%"
                 transform="translate(-50%, -50%)"
               />
-              <Skeleton key={i} width="209px" height="100px" rounded="lg" />
+              <Skeleton key={index} width="209px" height="100px" rounded="lg" />
             </Box>
           ))}
     </SimpleGrid>
