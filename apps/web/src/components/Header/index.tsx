@@ -22,10 +22,10 @@ const Header = () => {
           alignItems="center"
           gap={2}
         >
-          <Box boxSize="40px" borderRadius="50%" border="1px solid #1A202C">
+          <Box boxSize="25px" borderRadius="50%">
             <Image src="/assets/logo.png" alt="logo" />
           </Box>
-          <Text color="#627f91" fontWeight={600}>
+          <Text color="#3078a7" fontWeight={600}>
             Podcaster
           </Text>
         </Link>

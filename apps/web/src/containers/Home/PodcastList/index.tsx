@@ -1,17 +1,49 @@
-import { SimpleGrid, SimpleGridProps } from "@chakra-ui/react";
+import {
+  Box,
+  SimpleGrid,
+  SimpleGridProps,
+  Skeleton,
+  SkeletonCircle,
+  Text,
+} from "@chakra-ui/react";
 import { EntryDto } from "types";
 import PodcastCard from "./PodcastCard";
+import EmptyState from "./EmptyState";
 
 interface Props extends SimpleGridProps {
   podcasts?: EntryDto[];
+  isLoading?: boolean;
+  isEmpty?: boolean;
 }
 
-const PodcastList = ({ podcasts, ...props }: Props) => {
+const PodcastList = ({
+  podcasts,
+  isLoading,
+  isEmpty,
+  onClick,
+  ...props
+}: Props) => {
+  if (isEmpty) {
+    return <EmptyState />;
+  }
+
   return (
     <SimpleGrid columns={4} spacingX={4} spacingY={20} {...props}>
-      {podcasts?.map(podcast => (
-        <PodcastCard podcast={podcast} />
-      ))}
+      {!isLoading
+        ? podcasts?.map(podcast => <PodcastCard podcast={podcast} />)
+        : [...Array(50)].map((_, i) => (
+            <Box position="relative">
+              <SkeletonCircle
+                opacity="1"
+                size="70"
+                position="absolute"
+                top="0%"
+                left="50%"
+                transform="translate(-50%, -50%)"
+              />
+              <Skeleton key={i} width="209px" height="100px" rounded="lg" />
+            </Box>
+          ))}
     </SimpleGrid>
   );
 };

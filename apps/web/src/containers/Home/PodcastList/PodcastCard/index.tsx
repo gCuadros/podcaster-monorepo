@@ -11,10 +11,12 @@ const PodcastCard = ({ podcast }: Props) => {
   return (
     <Card
       position="relative"
-      boxShadow={"xl"}
+      boxShadow={"lg"}
       border="1px solid"
       borderColor="gray.100"
       cursor="pointer"
+      transition="0.3s ease all"
+      _hover={{ boxShadow: "2xl" }}
     >
       <CardBody justifyContent="center">
         <Image

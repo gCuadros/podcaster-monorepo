@@ -1,8 +1,9 @@
 import { QueryFunctionContext, useQuery } from "@tanstack/react-query";
 import { fetcher } from "api/fetcher";
-import { FindAllPodcast, PodcastDto } from "types";
+import { ContentsDto, EntryDto, FindAllPodcast, PodcastDto } from "types";
 
 import { merge } from "utils/merge";
+import { normalizeString } from "utils/normalizeString";
 
 type Props = FindAllPodcast["request"];
 
@@ -38,4 +39,21 @@ export const usePodcasts = (props: Props) =>
   useQuery({
     queryKey: podcastsKey(props),
     queryFn: fetchPodcasts,
+  });
+
+export const usePodcastsFilterOnClient = (props: Props) =>
+  useQuery({
+    queryKey: podcastsKey(props),
+    queryFn: fetchPodcasts,
+    select: (data: ContentsDto) => {
+      const filteredPodcasts = data?.feed?.entry.filter(podcast =>
+        props.filter.search !== undefined
+          ? normalizeString(podcast["im:name"].label).includes(
+              normalizeString(props.filter.search)
+            )
+          : true
+      );
+
+      return filteredPodcasts;
+    },
   });

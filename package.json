@@ -28,6 +28,7 @@
     "@fontsource/roboto": "^4.5.8",
     "@fontsource/urbanist": "^4.5.17",
     "@tanstack/react-query-devtools": "^4.29.3",
-    "lodash": "^4.17.21"
+    "lodash": "^4.17.21",
+    "react-icons": "^4.8.0"
   }
 }
