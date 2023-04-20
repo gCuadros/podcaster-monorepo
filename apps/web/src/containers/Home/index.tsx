@@ -1,4 +1,4 @@
-import { HStack, Text, VStack } from "@chakra-ui/react";
+import { Badge, HStack, Text, VStack } from "@chakra-ui/react";
 import {
   usePodcasts,
   usePodcastsFilterOnClient,
@@ -26,12 +26,22 @@ const Home = () => {
       spacing={16}
     >
       <HStack width="100%" justifyContent="flex-end">
-        <SearchBar
-          value={search}
-          onChange={setSearch}
-          totalItems={podcasts?.length}
-          maxW="450px"
-        />
+        <HStack>
+          <Badge
+            color="white"
+            backgroundColor="#3078a7"
+            fontSize="12px"
+            borderRadius="8px"
+            paddingY={1}
+            paddingX={4}
+            minWidth="52px"
+            minHeight="26px"
+            textAlign="center"
+          >
+            {podcasts?.length}
+          </Badge>
+          <SearchBar value={search} onChange={setSearch} maxW="450px" />
+        </HStack>
       </HStack>
       <PodcastList
         podcasts={podcasts}

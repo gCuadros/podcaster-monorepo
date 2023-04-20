@@ -5,6 +5,7 @@ import {
   Skeleton,
   SkeletonCircle,
   Text,
+  useBreakpointValue,
 } from "@chakra-ui/react";
 import { EntryDto } from "types";
 import PodcastCard from "./PodcastCard";
@@ -23,12 +24,19 @@ const PodcastList = ({
   onClick,
   ...props
 }: Props) => {
+  const isMobile = useBreakpointValue({ base: true, md: false });
+
   if (isEmpty) {
     return <EmptyState />;
   }
 
   return (
-    <SimpleGrid columns={4} spacingX={4} spacingY={20} {...props}>
+    <SimpleGrid
+      columns={isMobile ? 1 : 4}
+      spacingX={4}
+      spacingY={20}
+      {...props}
+    >
       {!isLoading
         ? podcasts?.map(podcast => <PodcastCard podcast={podcast} />)
         : [...Array(50)].map((_, i) => (

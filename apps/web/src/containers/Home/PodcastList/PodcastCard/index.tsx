@@ -1,4 +1,11 @@
-import { Card, CardBody, CardProps, Image, Text } from "@chakra-ui/react";
+import {
+  Card,
+  CardBody,
+  CardProps,
+  Image,
+  Text,
+  Tooltip,
+} from "@chakra-ui/react";
 import { EntryDto } from "types";
 
 interface Props extends CardProps {
@@ -32,16 +39,19 @@ const PodcastCard = ({ podcast }: Props) => {
           width="100%"
           maxWidth="70px"
         />
-        <Text
-          fontSize="12px"
-          fontWeight={600}
-          marginTop={6}
-          noOfLines={1}
-          textTransform="uppercase"
-          textAlign="center"
-        >
-          {podcast["im:name"].label}
-        </Text>
+        <Tooltip label={podcast["im:name"].label} aria-label="name of podcast">
+          <Text
+            fontSize="12px"
+            fontWeight={600}
+            marginTop={6}
+            noOfLines={1}
+            textTransform="uppercase"
+            textAlign="center"
+          >
+            {podcast["im:name"].label}
+          </Text>
+        </Tooltip>
+
         <Text fontSize="11px" noOfLines={1} textAlign="center" color="gray.600">
           Author: {podcast["im:name"].label}
         </Text>
