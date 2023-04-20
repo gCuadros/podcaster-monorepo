@@ -4,7 +4,7 @@ import { Link, Text } from "@chakra-ui/react";
 const Page = () => {
   return (
     <Link as={NextLink} href="/">
-      <Text>home</Text>
+      <Text>Podcast Detail</Text>
     </Link>
   );
 };
