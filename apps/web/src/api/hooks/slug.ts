@@ -14,4 +14,6 @@ export const useSlugsParams = (): any => {
 export const slugsParams = (query: ParsedUrlQuery) => ({
   podcastId:
     query.podcastId !== "undefined" ? (query.podcastId as string) : undefined,
+  episodeId:
+    query.episodeId !== "undefined" ? (query.episodeId as string) : undefined,
 });

@@ -1,7 +1,8 @@
 import { Text } from "@chakra-ui/react";
+import Episode from "containers/Episode";
 
 const Page = () => {
-  return <Text>episodie Detail</Text>;
+  return <Episode />;
 };
 
 export default Page;
