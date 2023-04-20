@@ -20,6 +20,7 @@ const Header = () => {
         backgroundColor="white"
         borderBottom="1px solid"
         borderColor="gray.100"
+        justifyContent="space-between"
       >
         <Link as={NextLink} href="/" display="flex" alignItems="center" gap={2}>
           <Box boxSize="25px" borderRadius="50%">
@@ -30,7 +31,7 @@ const Header = () => {
           </Text>
         </Link>
 
-        {!isRouterReady && <Spinner />}
+        {!isRouterReady && <Spinner color="blue" />}
       </HStack>
     </Main>
   );
