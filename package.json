@@ -8,7 +8,6 @@
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev",
-    "test": "turbo run test",
     "dev:web": "turbo run dev --filter=web",
     "tsc-watch": "turbo run tsc-watch",
     "lint": "turbo run lint -- --fix",
@@ -17,7 +16,7 @@
     "test:dev": "playwright test"
   },
   "devDependencies": {
-    "eslint": "^7.32.0",
+    "eslint": "^8.38.0",
     "eslint-config-custom": "*",
     "husky": "^8.0.3",
     "lint-staged": "^13.2.1",
@@ -28,6 +27,7 @@
     "@fontsource/roboto": "^4.5.8",
     "@fontsource/urbanist": "^4.5.17",
     "@tanstack/react-query-devtools": "^4.29.3",
+    "install": "^0.13.0",
     "lodash": "^4.17.21",
     "react-icons": "^4.8.0",
     "vercel": "^28.20.0"

@@ -5,10 +5,16 @@
     "build": {
       "outputs": [".next/**", "!.next/cache/**"]
     },
-    "lint": {},
+    "lint": {
+      "outputs": []
+    },
     "dev": {
       "cache": false,
       "persistent": true
+    },
+    "tsc-watch": {
+      "dependsOn": ["^build"],
+      "outputs": []
     }
   }
 }

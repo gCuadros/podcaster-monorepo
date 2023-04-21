@@ -1,8 +1,9 @@
-import { Box, HStack, Image, Link, Spinner, Text } from "@chakra-ui/react";
+import NextLink from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import NextLink from "next/link";
 import Main from "ui/Main";
+
+import { Box, HStack, Image, Link, Spinner, Text } from "@chakra-ui/react";
 
 const Header = () => {
   const router = useRouter();

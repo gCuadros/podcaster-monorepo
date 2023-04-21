@@ -1,6 +1,10 @@
-import NextLink from "next/link";
+import { useMemo } from "react";
+import { EpisodeDto } from "types";
+
+import { usePodcastDetailsById } from "api/hooks/podcasts/usePodcastDetailsById";
+import { useSlugsParams } from "api/hooks/slug";
+
 import {
-  HStack,
   Card,
   Text,
   VStack,
@@ -8,10 +12,9 @@ import {
   Stack,
   useBreakpointValue,
 } from "@chakra-ui/react";
-import { usePodcastDetailsById } from "api/hooks/podcasts/usePodcastDetailsById";
-import { useSlugsParams } from "api/hooks/slug";
-import { EpisodeDto } from "types";
-import { useMemo } from "react";
+
+
+
 import DetailCard from "./DetailCard";
 import EpisodesTable from "./EpisodesTable";
 

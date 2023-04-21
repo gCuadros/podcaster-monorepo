@@ -1,11 +1,7 @@
 import { QueryFunctionContext, useQuery } from "@tanstack/react-query";
+import { EpisodeContentsDto, FindPodcast, PodcastContentsDto } from "types";
+
 import { fetcher } from "api/fetcher";
-import {
-  EpisodeContentsDto,
-  FindAllPodcast,
-  FindPodcast,
-  PodcastContentsDto,
-} from "types";
 
 type Props = FindPodcast["request"];
 
