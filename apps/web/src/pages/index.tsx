@@ -23,7 +23,6 @@ export const getStaticProps: GetStaticProps = async ({}) => {
 const Page = () => {
   return (
     <>
-      <Home />;
       <NextSeo
         title="Podcaster"
         description="Discover engaging and informative podcasts on our site. From interviews to storytelling, our podcasts cover a wide range of topics. Listen now for free!"
@@ -54,6 +53,7 @@ const Page = () => {
           cardType: "summary_large_image",
         }}
       />
+      <Home />;
     </>
   );
 };
