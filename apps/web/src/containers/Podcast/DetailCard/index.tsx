@@ -47,7 +47,7 @@ const DetailCard = ({ podcastId, isLink, ...props }: Props) => {
     );
 
   return (
-    <Card {...props}>
+    <Card boxShadow={"lg"} {...props}>
       <CardBody>
         <VStack>
           {isLink ? (

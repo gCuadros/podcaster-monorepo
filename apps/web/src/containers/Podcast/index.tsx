@@ -48,7 +48,7 @@ const Podcast = () => {
         maxW={isMobile ? "100%" : "300px"}
       />
       <VStack width="100%" maxWidth="645px" spacing={4}>
-        <Card width="100%">
+        <Card width="100%" boxShadow={"lg"}>
           <CardBody padding={2}>
             <Text fontSize="14px" fontWeight={600}>
               Episodes: {podcastTotalEpisodes}

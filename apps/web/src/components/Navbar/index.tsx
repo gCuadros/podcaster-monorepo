@@ -32,6 +32,7 @@ const Navbar = () => {
       borderColor="gray.100"
       justifyContent="center"
       alignItems="center"
+      boxShadow={"lg"}
     >
       <Link
         as={NextLink}

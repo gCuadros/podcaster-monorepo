@@ -32,8 +32,9 @@ const PodcastCard = ({ podcast }: Props) => {
         cursor="pointer"
         transition="0.3s ease all"
         _hover={{ boxShadow: "2xl" }}
+        background="radial-gradient(circle at 18.7% 37.8%, rgb(250, 250, 250) 0%, rgb(225, 234, 238) 90%)"
       >
-        <CardBody justifyContent="center">
+        <CardBody justifyContent="center" padding={8}>
           <Image
             src={podcast["im:image"][0].label}
             alt={podcast["im:name"].label}
@@ -45,7 +46,7 @@ const PodcastCard = ({ podcast }: Props) => {
             borderColor="gray.300"
             borderRadius="50%"
             width="100%"
-            maxWidth="70px"
+            maxWidth="80px"
           />
           <Tooltip
             label={podcast["im:name"].label}

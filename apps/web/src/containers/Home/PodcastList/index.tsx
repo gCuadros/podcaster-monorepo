@@ -1,3 +1,4 @@
+import { MouseEventHandler } from "react";
 import { EntryDto } from "types";
 
 import {
@@ -16,6 +17,7 @@ interface Props extends SimpleGridProps {
   podcasts?: EntryDto[];
   isLoading?: boolean;
   isEmpty?: boolean;
+  onClick?: MouseEventHandler;
 }
 
 const PodcastList = ({
@@ -28,7 +30,7 @@ const PodcastList = ({
   const isMobile = useBreakpointValue({ base: true, md: false });
 
   if (isEmpty) {
-    return <EmptyState />;
+    return <EmptyState onClick={onClick} />;
   }
 
   return (

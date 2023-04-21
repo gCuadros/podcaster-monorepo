@@ -47,7 +47,7 @@ const EpisodesTable = ({
   };
 
   return (
-    <Card width="100%">
+    <Card width="100%" boxShadow={"lg"}>
       <CardBody padding={2}>
         <TableContainer>
           <Table
