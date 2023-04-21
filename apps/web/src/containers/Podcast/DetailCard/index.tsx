@@ -1,3 +1,7 @@
+import NextLink from "next/link";
+
+import { usePodcastsFilterById } from "api/hooks/podcasts/usePodcasts";
+
 import {
   Card,
   CardBody,
@@ -11,8 +15,6 @@ import {
   Skeleton,
   Link,
 } from "@chakra-ui/react";
-import { usePodcastsFilterById } from "api/hooks/podcasts/usePodcasts";
-import NextLink from "next/link";
 
 interface Props extends CardProps {
   podcastId: string;

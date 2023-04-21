@@ -1,15 +1,16 @@
+import { EntryDto } from "types";
+
 import {
   Box,
   SimpleGrid,
   SimpleGridProps,
   Skeleton,
   SkeletonCircle,
-  Text,
   useBreakpointValue,
 } from "@chakra-ui/react";
-import { EntryDto } from "types";
-import PodcastCard from "./PodcastCard";
+
 import EmptyState from "./EmptyState";
+import PodcastCard from "./PodcastCard";
 
 interface Props extends SimpleGridProps {
   podcasts?: EntryDto[];

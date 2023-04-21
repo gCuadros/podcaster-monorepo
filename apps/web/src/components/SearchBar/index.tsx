@@ -1,9 +1,6 @@
 import {
-  Badge,
-  HStack,
   Input,
   InputGroup,
-  InputGroupProps,
   InputProps,
   InputRightElement,
 } from "@chakra-ui/react";
@@ -22,7 +19,9 @@ const SearchBar = ({ onChange, ...props }: Props) => {
         onChange={e => onChange(e.target.value)}
         {...props}
       />
-      <InputRightElement fontSize="12px" children={<AiOutlineSearch />} />
+      <InputRightElement fontSize="12px">
+        <AiOutlineSearch />
+      </InputRightElement>
     </InputGroup>
   );
 };

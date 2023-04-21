@@ -1,7 +1,7 @@
 import { QueryFunctionContext, useQuery } from "@tanstack/react-query";
-import { fetcher } from "api/fetcher";
-import { ContentsDto, EntryDto, FindAllPodcast, PodcastsDto } from "types";
+import { ContentsDto, FindAllPodcast } from "types";
 
+import { fetcher } from "api/fetcher";
 import { merge } from "utils/merge";
 import { normalizeString } from "utils/normalizeString";
 

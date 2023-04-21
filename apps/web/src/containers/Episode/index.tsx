@@ -1,3 +1,8 @@
+import parse from "html-react-parser";
+
+import { usePodcastFilterEpisodeById } from "api/hooks/podcasts/usePodcastDetailsById";
+import { useSlugsParams } from "api/hooks/slug";
+
 import {
   Box,
   Card,
@@ -9,10 +14,8 @@ import {
   VStack,
   useBreakpointValue,
 } from "@chakra-ui/react";
-import { usePodcastFilterEpisodeById } from "api/hooks/podcasts/usePodcastDetailsById";
-import { useSlugsParams } from "api/hooks/slug";
 import DetailCard from "containers/Podcast/DetailCard";
-import parse from "html-react-parser";
+
 
 const Episode = ({}) => {
   const isMobile = useBreakpointValue({ base: true, md: false });

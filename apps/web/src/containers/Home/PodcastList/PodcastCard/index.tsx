@@ -1,4 +1,5 @@
 import NextLink from "next/link";
+import { EntryDto } from "types";
 
 import {
   Card,
@@ -8,9 +9,7 @@ import {
   Link,
   Text,
   Tooltip,
-  textDecoration,
 } from "@chakra-ui/react";
-import { EntryDto } from "types";
 
 interface Props extends CardProps {
   podcast?: EntryDto;

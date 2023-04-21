@@ -1,5 +1,6 @@
-import { useRouter } from "next/router";
 import { ParsedUrlQuery } from "querystring";
+
+import { useRouter } from "next/router";
 
 //hook para obtener los slugs que sabemos que existen en nuestro site.
 export const useSlugsParams = (): any => {

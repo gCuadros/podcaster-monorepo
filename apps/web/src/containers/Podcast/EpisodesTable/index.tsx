@@ -1,3 +1,8 @@
+import NextLink from "next/link";
+import { EpisodeDto } from "types";
+
+import { getDateInfo } from "utils/useDateinfo";
+
 import {
   Card,
   CardBody,
@@ -8,16 +13,12 @@ import {
   TableProps,
   Tbody,
   Td,
-  Tfoot,
   Th,
   Thead,
   Tr,
   Text,
   Tooltip,
 } from "@chakra-ui/react";
-import { EpisodeDto } from "types";
-import NextLink from "next/link";
-import { getDateInfo } from "utils/useDateinfo";
 
 interface Props extends TableProps {
   podcastId?: string;
