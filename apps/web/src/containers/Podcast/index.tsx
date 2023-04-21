@@ -13,13 +13,11 @@ import {
   useBreakpointValue,
 } from "@chakra-ui/react";
 
-
-
 import DetailCard from "./DetailCard";
 import EpisodesTable from "./EpisodesTable";
 
 const Podcast = () => {
-  const isMobile = useBreakpointValue({ base: true, md: false });
+  const isMobile = useBreakpointValue({ base: true, lg: false });
   const { podcastId } = useSlugsParams();
   const { data: podcast, isLoading: isPodcastLoading } = usePodcastDetailsById({
     query: { podcastId },

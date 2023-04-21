@@ -14,6 +14,7 @@ import {
   CardProps,
   Skeleton,
   Link,
+  useBreakpointValue,
 } from "@chakra-ui/react";
 
 interface Props extends CardProps {
@@ -22,6 +23,8 @@ interface Props extends CardProps {
 }
 
 const DetailCard = ({ podcastId, isLink, ...props }: Props) => {
+  const isMobile = useBreakpointValue({ base: true, lg: false });
+
   const {
     data: podcastDetail,
     isLoading,
@@ -35,7 +38,13 @@ const DetailCard = ({ podcastId, isLink, ...props }: Props) => {
   if (isEmpty) return null;
 
   if (isLoading)
-    return <Skeleton width="350px" height="500px" borderRadius="8px" />;
+    return (
+      <Skeleton
+        width={isMobile ? "100%" : "350px"}
+        height={isMobile ? "356px" : "350px"}
+        borderRadius="8px"
+      />
+    );
 
   return (
     <Card {...props}>

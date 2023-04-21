@@ -41,6 +41,8 @@ const Navbar = () => {
         gap={2}
         width="100%"
         maxW="980px"
+        transition="03.s all ease"
+        _hover={{ textDecoration: "none", opacity: "0.8" }}
       >
         <Box boxSize="25px" borderRadius="50%">
           <Image src="/assets/logo.png" alt="logo" />
