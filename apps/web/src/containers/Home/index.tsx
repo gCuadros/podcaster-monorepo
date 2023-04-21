@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import { usePodcastsFilterOnClient } from "api/hooks/podcasts/usePodcasts";
 
-import { HStack, Icon, Text, VStack } from "@chakra-ui/react";
+import { HStack, Icon, Skeleton, Text, VStack } from "@chakra-ui/react";
 import SearchBar from "components/SearchBar";
 import { BiPodcast } from "react-icons/bi";
 
@@ -19,7 +19,13 @@ const Home = () => {
   const isEmpty = !isPodcastLoading && podcasts?.length === 0;
 
   return (
-    <VStack padding={4} backgroundColor="white" borderRadius="8px" spacing={16}>
+    <VStack
+      paddingY={8}
+      paddingX={4}
+      backgroundColor="white"
+      borderRadius="8px"
+      gap={20}
+    >
       <HStack
         width="100%"
         maxW="380px"
@@ -41,10 +47,14 @@ const Home = () => {
           alignItems="center"
         >
           <Icon as={BiPodcast} fontSize="18px" color="#3078a7" />
-          <Text fontSize="14px"> {podcasts?.length}</Text>
+          {isLoading ? (
+            <Skeleton height="15px" width="40px" />
+          ) : (
+            <Text fontSize="14px"> {podcasts?.length}</Text>
+          )}
         </HStack>
 
-        <SearchBar value={search} onChange={setSearch} />
+        <SearchBar value={search} onChange={setSearch} isDisabled={isLoading} />
       </HStack>
       <PodcastList
         podcasts={podcasts}

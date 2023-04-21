@@ -7,56 +7,60 @@ import {
   HStack,
   Image,
   Link,
-  SkeletonCircle,
+  Progress,
+  Stack,
   Text,
 } from "@chakra-ui/react";
 
 const Navbar = () => {
-  const [loading, setLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
-  Router.events.on("routeChangeStart", () => setLoading(true));
-  Router.events.on("routeChangeComplete", () => setLoading(false));
-  Router.events.on("routeChangeError", () => setLoading(false));
+  Router.events.on("routeChangeStart", () => setIsLoading(true));
+  Router.events.on("routeChangeComplete", () => setIsLoading(false));
+  Router.events.on("routeChangeError", () => setIsLoading(false));
 
   return (
-    <HStack
+    <Stack
       width="100%"
       position="fixed"
       top="0"
       left="0"
       zIndex="sticky"
-      paddingX={4}
-      paddingY={2}
+      paddingTop={2}
+      paddingBottom={isLoading ? 0 : 2}
       backgroundColor="white"
       borderBottom="1px solid"
       borderColor="gray.100"
-      justifyContent="center"
-      alignItems="center"
       boxShadow={"lg"}
+      alignItems="center"
     >
-      <Link
-        as={NextLink}
-        href="/"
-        display="flex"
-        alignItems="center"
-        gap={2}
+      <HStack
         width="100%"
         maxW="980px"
-        transition="03.s all ease"
-        _hover={{ textDecoration: "none", opacity: "0.8" }}
+        justifyContent="flex-start"
+        alignItems="center"
       >
-        <Box boxSize="25px" borderRadius="50%">
-          <Image src="/assets/logo.png" alt="logo" />
-        </Box>
-        <Text color="#3078a7" fontWeight={600}>
-          Podcaster
-        </Text>
-      </Link>
-
-      {loading && (
-        <SkeletonCircle size="5" startColor="blue.300" endColor="#3078a7" />
+        <Link
+          as={NextLink}
+          href="/"
+          display="flex"
+          alignItems="center"
+          gap={2}
+          transition="03.s all ease"
+          _hover={{ textDecoration: "none", opacity: "0.8" }}
+        >
+          <Box boxSize="25px" borderRadius="50%">
+            <Image src="/assets/logo.png" alt="logo" />
+          </Box>
+          <Text color="#3078a7" fontWeight={600}>
+            Podcaster
+          </Text>
+        </Link>
+      </HStack>
+      {isLoading && (
+        <Progress size="xs" width="100%" color="#3078a7" isIndeterminate />
       )}
-    </HStack>
+    </Stack>
   );
 };
 

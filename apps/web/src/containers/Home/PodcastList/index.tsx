@@ -47,7 +47,7 @@ const PodcastList = ({
               podcast={podcast}
             />
           ))
-        : [...Array(50)].map((_, index) => (
+        : [...Array(24)].map((_, index) => (
             <Box key={index} position="relative">
               <SkeletonCircle
                 opacity="1"
