@@ -1,12 +1,11 @@
-import { Badge, HStack, Text, VStack } from "@chakra-ui/react";
-import {
-  usePodcasts,
-  usePodcastsFilterOnClient,
-} from "api/hooks/podcasts/usePodcasts";
-import { useMemo, useState } from "react";
-import { EntryDto } from "types";
-import PodcastList from "./PodcastList";
+import { useState } from "react";
+
+import { usePodcastsFilterOnClient } from "api/hooks/podcasts/usePodcasts";
+
+import { Badge, HStack, VStack } from "@chakra-ui/react";
 import SearchBar from "components/SearchBar";
+
+import PodcastList from "./PodcastList";
 
 const Home = () => {
   const [search, setSearch] = useState("");
