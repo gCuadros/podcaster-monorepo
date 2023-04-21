@@ -1,4 +1,4 @@
-import { expect, type Page, test } from "@playwright/test";
+import { test } from "@playwright/test";
 
 test.beforeEach(async ({ page }) => {
   await page.goto("http://localhost:3000/");
@@ -6,6 +6,8 @@ test.beforeEach(async ({ page }) => {
 
 test.describe("New Search", () => {
   test("should allow me to search", async ({ page }) => {
+    await page.getByText("The Joe Budden Podcast");
+
     // create a new todo locator
     const search = page.getByPlaceholder("Filter podcasts");
 
@@ -13,6 +15,6 @@ test.describe("New Search", () => {
     await search.fill("The Joe");
 
     // Make sure the list only has one todo item.
-    page.getByText("The Joe Budden Podcast");
+    await page.getByText("The Joe Budden Podcast");
   });
 });
