@@ -16,7 +16,6 @@ import {
 } from "@chakra-ui/react";
 import DetailCard from "containers/Podcast/DetailCard";
 
-
 const Episode = ({}) => {
   const isMobile = useBreakpointValue({ base: true, md: false });
   const { podcastId, episodeId } = useSlugsParams();
@@ -34,7 +33,12 @@ const Episode = ({}) => {
       width="100%"
       gap={8}
     >
-      <DetailCard podcastId={podcastId} isLink maxW="300px" />;
+      <DetailCard
+        podcastId={podcastId}
+        isLink
+        maxW={isMobile ? "100%" : "300px"}
+      />
+      ;
       <VStack width="100%" maxWidth="645px" spacing={4}>
         <Card width="100%">
           <CardHeader paddingX={4} paddingBottom={2}>
