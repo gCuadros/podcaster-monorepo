@@ -1,5 +1,18 @@
 {
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "paths": {
+      "@/components/*": ["/components/*"],
+      "@/containers/*": ["/containers/*"],
+      "@/api/*": ["/api/*"]
+    }
+  },
   "extends": "tsconfig/nextjs.json",
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": [
+    "next-env.d.ts",
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "../../packages/ui/Main.tsx"
+  ],
   "exclude": ["node_modules"]
 }

@@ -1,21 +1,35 @@
 {
-  "private": true,
-  "scripts": {
-    "build": "turbo run build",
-    "dev": "turbo run dev",
-    "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
-  },
-  "devDependencies": {
-    "eslint": "^7.32.0",
-    "eslint-config-custom": "*",
-    "prettier": "^2.5.1",
-    "turbo": "latest"
-  },
   "name": "podcaster_monorepo",
   "packageManager": "npm@8.19.3",
   "workspaces": [
     "apps/*",
     "packages/*"
-  ]
+  ],
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "dev:web": "turbo run dev --filter=web",
+    "tsc-watch": "turbo run tsc-watch",
+    "lint": "turbo run lint -- --fix",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "prepare": "husky install",
+    "test:dev": "playwright test"
+  },
+  "devDependencies": {
+    "eslint": "^8.38.0",
+    "eslint-config-custom": "*",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.1",
+    "prettier": "2.8.7",
+    "turbo": "latest"
+  },
+  "dependencies": {
+    "@fontsource/roboto": "^4.5.8",
+    "@fontsource/urbanist": "^4.5.17",
+    "@tanstack/react-query-devtools": "^4.29.3",
+    "install": "^0.13.0",
+    "lodash": "^4.17.21",
+    "react-icons": "^4.8.0",
+    "vercel": "^28.20.0"
+  }
 }

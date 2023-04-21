@@ -1,0 +1,26 @@
+{
+  "name": "eslint-config-react",
+  "version": "0.0.0",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "clean": "rm -rf .turbo && rm -rf node_modules"
+  },
+  "dependencies": {
+    "@typescript-eslint/parser": "^5.27.1",
+    "eslint-config-next": "latest",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-config-turbo": "latest",
+    "eslint-import-resolver-typescript": "^2.7.1",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-react": "7.28.0",
+    "eslint-plugin-unused-imports": "^2.0.0",
+    "eslint-rule-composer": "^0.3.0"
+  },
+  "devDependencies": {
+    "typescript": "4.7.4"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
