@@ -4,10 +4,11 @@ import { usePodcastFilterEpisodeById } from "api/hooks/podcasts/usePodcastDetail
 import { useSlugsParams } from "api/hooks/slug";
 
 import {
-  Box,
   Card,
   CardBody,
   CardHeader,
+  Flex,
+  Skeleton,
   SkeletonText,
   Stack,
   Text,
@@ -17,7 +18,7 @@ import {
 import DetailCard from "containers/Podcast/DetailCard";
 
 const Episode = ({}) => {
-  const isMobile = useBreakpointValue({ base: true, md: false });
+  const isMobile = useBreakpointValue({ base: true, lg: false });
   const { podcastId, episodeId } = useSlugsParams();
   const { data: episode, isLoading } = usePodcastFilterEpisodeById({
     query: { podcastId },
@@ -36,10 +37,11 @@ const Episode = ({}) => {
       <DetailCard
         podcastId={podcastId}
         isLink
+        width="100%"
         maxW={isMobile ? "100%" : "300px"}
       />
       ;
-      <VStack width="100%" maxWidth="645px" spacing={4}>
+      <VStack width="100%" maxWidth={isMobile ? "100%" : "645px"} spacing={4}>
         <Card width="100%">
           <CardHeader paddingX={4} paddingBottom={2}>
             {isLoading ? (
@@ -51,18 +53,34 @@ const Episode = ({}) => {
             )}
           </CardHeader>
           <CardBody paddingX={4} paddingTop={0}>
-            <VStack spacing={4}>
+            <VStack spacing={4} w="100%">
               {isLoading ? (
                 <SkeletonText />
               ) : (
-                <Text fontSize="12px">
+                <Text fontSize="12px" lineHeight="18px">
                   {episode?.description
                     ? parse(`${episode?.description}`)
                     : "Sorry, this description is not available."}
                 </Text>
               )}
-
-              <Box>{<audio src={episode?.episodeUrl} controls />}</Box>
+              <Flex
+                w="100%"
+                justifyContent="center"
+                alignItems="center"
+                padding={4}
+              >
+                {isLoading ? (
+                  <Skeleton width="300px" height="50px" borderRadius="50px" />
+                ) : episode?.episodeUrl ? (
+                  <audio
+                    src={episode?.episodeUrl}
+                    controls
+                    style={{ width: "100%", maxWidth: "500px" }}
+                  />
+                ) : (
+                  <Text>Sorry, this episode is not available.</Text>
+                )}
+              </Flex>
             </VStack>
           </CardBody>
         </Card>

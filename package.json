@@ -24,8 +24,6 @@
     "turbo": "latest"
   },
   "dependencies": {
-    "@fontsource/roboto": "^4.5.8",
-    "@fontsource/urbanist": "^4.5.17",
     "@tanstack/react-query-devtools": "^4.29.3",
     "install": "^0.13.0",
     "lodash": "^4.17.21",
