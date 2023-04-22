@@ -53,7 +53,7 @@ const Page = () => {
           cardType: "summary_large_image",
         }}
       />
-      <Home />;
+      <Home />
     </>
   );
 };
