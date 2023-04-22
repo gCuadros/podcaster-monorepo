@@ -15,6 +15,7 @@ import {
   Skeleton,
   Link,
   useBreakpointValue,
+  SkeletonText,
 } from "@chakra-ui/react";
 
 interface Props extends CardProps {
@@ -39,11 +40,22 @@ const DetailCard = ({ podcastId, isLink, ...props }: Props) => {
 
   if (isLoading)
     return (
-      <Skeleton
-        width={isMobile ? "100%" : "350px"}
-        height={isMobile ? "356px" : "350px"}
-        borderRadius="8px"
-      />
+      <Card boxShadow={"lg"} {...props}>
+        <CardBody>
+          <VStack>
+            <Skeleton
+              width={isMobile ? "100%" : "250px"}
+              height={"250px"}
+              borderRadius="8px"
+            />
+            <Divider />
+            <SkeletonText width={isMobile ? "100%" : "250px"} height={"50px"} />
+            <Divider />
+            <SkeletonText width={isMobile ? "100%" : "250px"} height={"50px"} />
+            <SkeletonText width={isMobile ? "100%" : "250px"} height={"50px"} />
+          </VStack>
+        </CardBody>
+      </Card>
     );
 
   return (
@@ -82,7 +94,20 @@ const DetailCard = ({ podcastId, isLink, ...props }: Props) => {
             ) : (
               <Heading size="sm">{podcastDetail.title.label}</Heading>
             )}
-            <Text fontSize="12px">by {podcastDetail["im:artist"].label}</Text>
+            {isLink ? (
+              <Link
+                as={NextLink}
+                href={`/podcast/${podcastId}`}
+                transition="0.3s ease all"
+                _hover={{ textDecoration: "none", opacity: "0.6" }}
+              >
+                <Text fontSize="12px">
+                  by {podcastDetail["im:artist"].label}
+                </Text>
+              </Link>
+            ) : (
+              <Text fontSize="12px">by {podcastDetail["im:artist"].label}</Text>
+            )}
           </Stack>
           <Divider />
           <Stack padding={2} justifyContent="flex-start" width="100%">

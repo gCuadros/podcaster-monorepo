@@ -15,7 +15,7 @@ import {
   VStack,
   useBreakpointValue,
 } from "@chakra-ui/react";
-import DetailCard from "containers/Podcast/DetailCard";
+import DetailCard from "components/Podcast/DetailCard";
 
 const Episode = ({}) => {
   const isMobile = useBreakpointValue({ base: true, lg: false });
@@ -42,7 +42,7 @@ const Episode = ({}) => {
       />
       ;
       <VStack width="100%" maxWidth={isMobile ? "100%" : "645px"} spacing={4}>
-        <Card width="100%">
+        <Card width="100%" boxShadow={"lg"}>
           <CardHeader paddingX={4} paddingBottom={2}>
             {isLoading ? (
               <SkeletonText />

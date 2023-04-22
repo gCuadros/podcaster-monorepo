@@ -26,8 +26,6 @@ const Navbar = () => {
       top="0"
       left="0"
       zIndex="sticky"
-      paddingTop={2}
-      paddingBottom={isLoading ? 0 : 2}
       backgroundColor="white"
       borderBottom="1px solid"
       borderColor="gray.100"
@@ -39,6 +37,9 @@ const Navbar = () => {
         maxW="980px"
         justifyContent="flex-start"
         alignItems="center"
+        paddingTop={2}
+        paddingBottom={isLoading ? 0 : 2}
+        paddingX={4}
       >
         <Link
           as={NextLink}

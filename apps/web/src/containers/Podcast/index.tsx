@@ -11,9 +11,10 @@ import {
   CardBody,
   Stack,
   useBreakpointValue,
+  Skeleton,
 } from "@chakra-ui/react";
+import DetailCard from "components/Podcast/DetailCard";
 
-import DetailCard from "./DetailCard";
 import EpisodesTable from "./EpisodesTable";
 
 const Podcast = () => {
@@ -47,12 +48,19 @@ const Podcast = () => {
         width="100%"
         maxW={isMobile ? "100%" : "300px"}
       />
-      <VStack width="100%" maxWidth="645px" spacing={4}>
+      <VStack width="100%" maxWidth={isMobile ? "100%" : "645px"} spacing={4}>
         <Card width="100%" boxShadow={"lg"}>
-          <CardBody padding={2}>
+          <CardBody padding={2} display="flex" alignItems="center" gap={2}>
             <Text fontSize="14px" fontWeight={600}>
-              Episodes: {podcastTotalEpisodes}
+              Episodes:
             </Text>
+            {isLoading ? (
+              <Skeleton height="15px" width="40px" />
+            ) : (
+              <Text as="span" fontSize="14px" fontWeight={600}>
+                {podcastTotalEpisodes}
+              </Text>
+            )}
           </CardBody>
         </Card>
         <EpisodesTable

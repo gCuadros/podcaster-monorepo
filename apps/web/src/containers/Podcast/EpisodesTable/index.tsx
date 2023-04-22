@@ -50,11 +50,7 @@ const EpisodesTable = ({
     <Card width="100%" boxShadow={"lg"}>
       <CardBody padding={2}>
         <TableContainer>
-          <Table
-            size="sm"
-            variant="striped"
-            colorScheme={isLoading ? "simple" : "gray"}
-          >
+          <Table size="sm" variant="striped" colorScheme={"gray"}>
             <Thead>
               <Tr>
                 <Th>Title</Th>
@@ -65,7 +61,7 @@ const EpisodesTable = ({
             <Tbody>
               {!isLoading
                 ? podcastEpisodes?.map(episode => (
-                    <Tr key={episode.trackId} border="none">
+                    <Tr key={episode.trackId}>
                       <Td textAlign="start" maxWidth="425px">
                         <Link
                           as={NextLink}
@@ -95,10 +91,10 @@ const EpisodesTable = ({
                 : [...Array(50)].map((_, index) => (
                     <Tr key={index}>
                       <Td>
-                        <Skeleton width="300px" height="15px" />
+                        <Skeleton width="175px" height="15px" />
                       </Td>
                       <Td>
-                        <Skeleton width="175px" height="15px" />
+                        <Skeleton width="125px" height="15px" />
                       </Td>
                       <Td>
                         <Skeleton width="99px" height="15px" />

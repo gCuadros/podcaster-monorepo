@@ -54,7 +54,11 @@ const Home = () => {
           )}
         </HStack>
 
-        <SearchBar value={search} onChange={setSearch} isDisabled={isLoading} />
+        <SearchBar
+          value={search}
+          onChange={setSearch}
+          pointerEvents={isLoading ? "none" : "inherit"}
+        />
       </HStack>
       <PodcastList
         podcasts={podcasts}
