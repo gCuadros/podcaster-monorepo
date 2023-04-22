@@ -1,10 +1,10 @@
 import {
   Input,
   InputGroup,
+  InputLeftElement,
   InputProps,
-  InputRightElement,
 } from "@chakra-ui/react";
-import { AiOutlineSearch } from "react-icons/ai";
+import { FiSearch } from "react-icons/fi";
 
 interface Props extends Omit<InputProps, "onChange"> {
   onChange: (value: string) => void;
@@ -16,12 +16,13 @@ const SearchBar = ({ onChange, ...props }: Props) => {
       <Input
         fontSize="12px"
         placeholder="Filter podcasts..."
+        _focus={{ borderColor: "#cbd5e0" }}
         onChange={e => onChange(e.target.value)}
         {...props}
       />
-      <InputRightElement fontSize="12px">
-        <AiOutlineSearch />
-      </InputRightElement>
+      <InputLeftElement fontSize="16px">
+        <FiSearch />
+      </InputLeftElement>
     </InputGroup>
   );
 };
