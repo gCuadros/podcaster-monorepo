@@ -7,15 +7,10 @@ const { toast } = createStandaloneToast();
 export const client = new QueryClient({
   defaultOptions: {
     queries: {
-      staleTime: 0,
-      cacheTime: 60 * 60 * 1000 * 24, // 1 day
-      retry: 3,
-      retryDelay: attemptIndex => Math.min(1000 * 2 ** attemptIndex, 30000),
-      refetchInterval: false,
-      refetchIntervalInBackground: false,
-      refetchOnMount: true,
-      refetchOnReconnect: true,
-      refetchOnWindowFocus: true,
+      staleTime: 60 * 60 * 1000 * 24,
+      refetchOnWindowFocus: false,
+      refetchOnMount: false,
+      retry: false,
       notifyOnChangeProps: "all",
     },
   },
