@@ -50,6 +50,9 @@ export const usePodcastsFilterOnClient = (props: Props) =>
         props.filter.search !== undefined
           ? normalizeString(podcast["im:name"].label).includes(
               normalizeString(props.filter.search)
+            ) ||
+            normalizeString(podcast["im:artist"].label).includes(
+              normalizeString(props.filter.search)
             )
           : true
       );
