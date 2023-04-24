@@ -1,5 +1,3 @@
-import parse from "html-react-parser";
-
 import { usePodcastFilterEpisodeById } from "api/hooks/podcasts/usePodcastDetailsById";
 import { useSlugsParams } from "api/hooks/slug";
 
@@ -56,12 +54,13 @@ const Episode = ({}) => {
             <VStack spacing={4} w="100%">
               {isLoading ? (
                 <SkeletonText />
+              ) : episode?.description ? (
+                <div
+                  style={{ fontSize: "12px", lineHeight: "18px" }}
+                  dangerouslySetInnerHTML={{ __html: episode?.description }}
+                />
               ) : (
-                <Text fontSize="12px" lineHeight="18px">
-                  {episode?.description
-                    ? parse(`${episode?.description}`)
-                    : "Sorry, this description is not available."}
-                </Text>
+                "Sorry, this description is not available."
               )}
               <Flex
                 w="100%"
