@@ -64,6 +64,7 @@ const Home = () => {
         podcasts={podcasts}
         isLoading={isLoading}
         isEmpty={isEmpty}
+        search={search}
         onClick={() => setSearch("")}
       />
     </VStack>

@@ -16,6 +16,7 @@ import {
 import DetailCard from "components/Podcast/DetailCard";
 
 import EpisodesTable from "./EpisodesTable";
+import EmptyState from "./EpisodesTable/EmptyState";
 
 const Podcast = () => {
   const isMobile = useBreakpointValue({ base: true, lg: false });
@@ -48,28 +49,31 @@ const Podcast = () => {
         width="100%"
         maxW={isMobile ? "100%" : "300px"}
       />
-      <VStack width="100%" maxWidth={isMobile ? "100%" : "645px"} spacing={4}>
-        <Card width="100%" boxShadow={"lg"}>
-          <CardBody padding={2} display="flex" alignItems="center" gap={2}>
-            <Text fontSize="14px" fontWeight={600}>
-              Episodes:
-            </Text>
-            {isLoading ? (
-              <Skeleton height="15px" width="40px" />
-            ) : (
-              <Text as="span" fontSize="14px" fontWeight={600}>
-                {podcastTotalEpisodes}
+      {isEmpty ? (
+        <EmptyState />
+      ) : (
+        <VStack width="100%" maxWidth={isMobile ? "100%" : "645px"} spacing={4}>
+          <Card width="100%" boxShadow={"lg"}>
+            <CardBody padding={2} display="flex" alignItems="center" gap={2}>
+              <Text fontSize="14px" fontWeight={600}>
+                Episodes:
               </Text>
-            )}
-          </CardBody>
-        </Card>
-        <EpisodesTable
-          podcastId={podcastId}
-          podcastEpisodes={podcastEpisodes}
-          isLoading={isLoading}
-          isEmpty={isEmpty}
-        />
-      </VStack>
+              {isLoading ? (
+                <Skeleton height="15px" width="40px" />
+              ) : (
+                <Text as="span" fontSize="14px" fontWeight={600}>
+                  {podcastTotalEpisodes}
+                </Text>
+              )}
+            </CardBody>
+          </Card>
+          <EpisodesTable
+            podcastId={podcastId}
+            podcastEpisodes={podcastEpisodes}
+            isLoading={isLoading}
+          />
+        </VStack>
+      )}
     </Stack>
   );
 };
