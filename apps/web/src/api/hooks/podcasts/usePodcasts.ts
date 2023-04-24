@@ -2,7 +2,6 @@ import { QueryFunctionContext, useQuery } from "@tanstack/react-query";
 import { ContentsDto, FindAllPodcast } from "types";
 
 import { fetcher } from "api/fetcher";
-import { merge } from "utils/merge";
 import { normalizeString } from "utils/normalizeString";
 
 type Props = FindAllPodcast["request"];
@@ -14,13 +13,13 @@ const defaultProps: Props = {
   },
 };
 
-export const podcastsKey = (props: Props) =>
+export const podcastsKey = () =>
   [
     {
       id: "podcasts",
       scope: "podcasts",
       entity: "list",
-      ...merge(defaultProps, props),
+      ...defaultProps,
     },
   ] as const;
 
