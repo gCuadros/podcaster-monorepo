@@ -11,15 +11,13 @@ export const podcastDetailKey = (props: Props) =>
       id: "podcast",
       scope: "podcast",
       entity: "detail",
-      ...props,
+      ...props.query,
     },
   ] as const;
 
 export const fetchPodcastDetail = async ({
-  queryKey: [{ query }],
+  queryKey: [{ podcastId }],
 }: QueryFunctionContext<ReturnType<typeof podcastDetailKey>>) => {
-  const { podcastId } = query;
-
   const response: FindPodcast["response"] = await fetcher(
     `/lookup?id=${podcastId}&media=podcast&entity=podcastEpisode&limit=20`
   );
