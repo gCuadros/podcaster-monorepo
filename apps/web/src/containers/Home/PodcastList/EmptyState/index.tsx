@@ -1,27 +1,36 @@
 import { MouseEventHandler } from "react";
 
-import { Button, Icon, Text, VStack } from "@chakra-ui/react";
-import { BsExclamationCircle } from "react-icons/bs";
+import { Button, HStack, Icon, Text, VStack } from "@chakra-ui/react";
+import { MdOutlineSearchOff } from "react-icons/md";
 
 interface Props {
+  search?: string;
   onClick: MouseEventHandler;
 }
 
-const EmptyState = ({ onClick }) => (
+const EmptyState = ({ search, onClick }: Props) => (
   <VStack margin="0 auto" gap={4} maxW="800px">
-    <Icon as={BsExclamationCircle} fontSize="20px" />
-    <Text fontSize="28px" textAlign="center">
-      Lo siento, no se han encontrado resultados para su búsqueda. Intente una
-      búsqueda diferente
+    <Icon as={MdOutlineSearchOff} fontSize="32px" />
+    <HStack>
+      <Text fontSize="24px" textAlign="center" color="gray.600">
+        No se ha podido encontrar ningún resultado de todos para
+      </Text>
+      <Text as="strong" fontStyle="italic" fontSize="24px" color="gray.600">
+        {`"${search}"`}
+      </Text>
+    </HStack>
+    <Text fontSize="16px" textAlign="center" fontWeight={500}>
+      Prueba a comprobar la ortografía o ampliar la búsqueda.
     </Text>
 
     <Button
       backgroundColor="#3078a7"
       color="white"
+      fontSize="14px"
       _hover={{ opacity: "0.8" }}
       onClick={onClick}
     >
-      Limpiar busqueda
+      Ver todo
     </Button>
   </VStack>
 );

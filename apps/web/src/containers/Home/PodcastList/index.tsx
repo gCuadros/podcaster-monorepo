@@ -17,6 +17,7 @@ interface Props extends SimpleGridProps {
   podcasts?: EntryDto[];
   isLoading?: boolean;
   isEmpty?: boolean;
+  search?: string;
   onClick?: MouseEventHandler;
 }
 
@@ -24,13 +25,14 @@ const PodcastList = ({
   podcasts,
   isLoading,
   isEmpty,
+  search,
   onClick,
   ...props
 }: Props) => {
   const isMobile = useBreakpointValue({ base: true, md: false });
 
   if (isEmpty) {
-    return <EmptyState onClick={onClick} />;
+    return <EmptyState search={search} onClick={onClick} />;
   }
 
   return (

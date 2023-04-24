@@ -24,14 +24,8 @@ interface Props extends TableProps {
   podcastId?: string;
   podcastEpisodes?: EpisodeDto[];
   isLoading?: boolean;
-  isEmpty?: boolean;
 }
-const EpisodesTable = ({
-  podcastId,
-  podcastEpisodes,
-  isLoading,
-  isEmpty,
-}: Props) => {
+const EpisodesTable = ({ podcastId, podcastEpisodes, isLoading }: Props) => {
   const formatDate = (dateInMs: string) => {
     const { day, month, year } = getDateInfo(dateInMs);
 
