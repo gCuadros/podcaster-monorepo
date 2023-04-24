@@ -30,7 +30,7 @@ const EmptyState = ({ search, onClick }: Props) => (
       _hover={{ opacity: "0.8" }}
       onClick={onClick}
     >
-      Ver todo
+      See all
     </Button>
   </VStack>
 );
