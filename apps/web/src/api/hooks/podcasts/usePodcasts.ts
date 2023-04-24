@@ -36,13 +36,13 @@ export const fetchPodcasts = async ({
 
 export const usePodcasts = (props: Props) =>
   useQuery({
-    queryKey: podcastsKey(props),
+    queryKey: podcastsKey(),
     queryFn: fetchPodcasts,
   });
 
 export const usePodcastsFilterOnClient = (props: Props) =>
   useQuery({
-    queryKey: podcastsKey(props),
+    queryKey: podcastsKey(),
     queryFn: fetchPodcasts,
     select: (data: ContentsDto) => {
       const filteredPodcasts = data?.feed?.entry.filter(podcast =>
@@ -62,7 +62,7 @@ export const usePodcastsFilterOnClient = (props: Props) =>
 
 export const usePodcastsFilterById = (props: Props) =>
   useQuery({
-    queryKey: podcastsKey(props),
+    queryKey: podcastsKey(),
     queryFn: fetchPodcasts,
     select: (data: ContentsDto) => {
       const filteredPodcast = data?.feed?.entry.find(
