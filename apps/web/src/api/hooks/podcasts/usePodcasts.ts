@@ -34,7 +34,7 @@ export const fetchPodcasts = async ({
   return JSON.parse(response.contents);
 };
 
-export const usePodcasts = (props: Props) =>
+export const usePodcasts = () =>
   useQuery({
     queryKey: podcastsKey(),
     queryFn: fetchPodcasts,
