@@ -13,14 +13,14 @@ const EmptyState = ({ search, onClick }: Props) => (
     <Icon as={MdOutlineSearchOff} fontSize="32px" />
     <HStack>
       <Text fontSize="24px" textAlign="center" color="gray.600">
-        No se ha podido encontrar ningún resultado de todos para
+        No results found for
       </Text>
       <Text as="strong" fontStyle="italic" fontSize="24px" color="gray.600">
-        {`"${search}"`}
+        {`"${search}"`}.
       </Text>
     </HStack>
     <Text fontSize="16px" textAlign="center" fontWeight={500}>
-      Prueba a comprobar la ortografía o ampliar la búsqueda.
+      Try checking your spelling or expanding your search.
     </Text>
 
     <Button

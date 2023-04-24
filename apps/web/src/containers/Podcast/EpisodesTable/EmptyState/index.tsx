@@ -7,9 +7,8 @@ const EmptyState = () => (
     <CardBody>
       <VStack gap={4} alignItems="flex-start">
         <Text fontSize="16px" color="gray.600">
-          El contenido de este podcast no esta disponible en este momento.
-          Mientras se soluciona el problema puedes divertirte explorando otros
-          podcasts.
+          The content of this podcast is not available at the moment. While the
+          issue is being resolved, you can have fun exploring other podcasts.
         </Text>
 
         <Link
@@ -24,7 +23,7 @@ const EmptyState = () => (
           _hover={{ textDecoration: "none" }}
           fontSize="14px"
         >
-          Seguir explorando
+          Keep exploring
         </Link>
       </VStack>
     </CardBody>

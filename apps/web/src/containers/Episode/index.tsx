@@ -106,7 +106,7 @@ const Episode = ({}) => {
                       _hover={{ textDecoration: "none" }}
                       fontSize="14px"
                     >
-                      Ver otros episodios
+                      View other episodes
                     </Link>
                   </VStack>
                 )}
