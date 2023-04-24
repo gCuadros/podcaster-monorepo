@@ -70,7 +70,7 @@ const PodcastCard = ({ podcast }: Props) => {
             textAlign="center"
             color="gray.600"
           >
-            Author: {podcast["im:name"].label}
+            Author: {podcast["im:artist"].label}
           </Text>
         </CardBody>
       </Card>
