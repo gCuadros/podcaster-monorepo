@@ -13,7 +13,6 @@
     "@fontsource/urbanist": "^4.5.17",
     "date-fns": "^2.29.3",
     "eslint-config-react": "*",
-    "html-react-parser": "^3.0.15",
     "next": "latest",
     "next-seo": "^6.0.0",
     "qs": "^6.10.3",
