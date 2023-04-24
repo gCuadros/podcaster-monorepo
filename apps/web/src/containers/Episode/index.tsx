@@ -1,3 +1,5 @@
+import NextLink from "next/link";
+
 import { usePodcastFilterEpisodeById } from "api/hooks/podcasts/usePodcastDetailsById";
 import { useSlugsParams } from "api/hooks/slug";
 
@@ -6,6 +8,7 @@ import {
   CardBody,
   CardHeader,
   Flex,
+  Link,
   Skeleton,
   SkeletonText,
   Stack,
@@ -51,16 +54,26 @@ const Episode = ({}) => {
             )}
           </CardHeader>
           <CardBody paddingX={4} paddingTop={0}>
-            <VStack spacing={4} w="100%">
+            <VStack spacing={8} alignItems="flex-start">
               {isLoading ? (
                 <SkeletonText />
-              ) : episode?.description ? (
+              ) : episode.description ? (
                 <div
-                  style={{ fontSize: "12px", lineHeight: "18px" }}
+                  style={{
+                    fontSize: "12px",
+                    lineHeight: "18px",
+                  }}
                   dangerouslySetInnerHTML={{ __html: episode?.description }}
                 />
               ) : (
-                "Sorry, this description is not available."
+                <Text
+                  fontSize="12px"
+                  lineHeight="18px"
+                  fontStyle="italic"
+                  color="gray.600"
+                >
+                  This description is not available.
+                </Text>
               )}
               <Flex
                 w="100%"
@@ -77,7 +90,25 @@ const Episode = ({}) => {
                     style={{ width: "100%", maxWidth: "500px" }}
                   />
                 ) : (
-                  <Text>Sorry, this episode is not available.</Text>
+                  <VStack spacing={4}>
+                    <Text fontSize="16px" lineHeight="18px" color="gray.600">
+                      Sorry, this episode is not available.
+                    </Text>
+                    <Link
+                      as={NextLink}
+                      href={`/podcast/${podcastId}`}
+                      paddingY={2}
+                      paddingX={4}
+                      border="1px solid"
+                      borderRadius="md"
+                      color="white"
+                      backgroundColor="#3078a7"
+                      _hover={{ textDecoration: "none" }}
+                      fontSize="14px"
+                    >
+                      Ver otros episodios
+                    </Link>
+                  </VStack>
                 )}
               </Flex>
             </VStack>
