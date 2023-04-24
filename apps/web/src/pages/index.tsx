@@ -10,7 +10,7 @@ import Home from "containers/Home";
 export const getStaticProps: GetStaticProps = async ({}) => {
   const queryClient = new QueryClient();
 
-  queryClient.prefetchQuery(podcastsKey({}), fetchPodcasts);
+  queryClient.prefetchQuery(podcastsKey(), fetchPodcasts);
 
   return {
     props: {
