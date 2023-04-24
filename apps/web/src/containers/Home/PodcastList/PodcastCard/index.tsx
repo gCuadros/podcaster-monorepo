@@ -47,6 +47,7 @@ const PodcastCard = ({ podcast }: Props) => {
             borderRadius="50%"
             width="100%"
             maxWidth="80px"
+            maxHeight="80px"
           />
           <Tooltip
             label={podcast["im:name"].label}
