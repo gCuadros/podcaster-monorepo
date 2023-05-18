@@ -5,4 +5,5 @@ module.exports = {
   rootDir: ".",
   name: "web",
   displayName: "Web Tests",
+  moduleDirectories: ["node_modules", "src"],
 };
