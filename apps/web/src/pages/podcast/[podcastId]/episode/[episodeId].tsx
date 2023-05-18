@@ -62,10 +62,14 @@ const Page = ({ podcast }: Props) => {
     <>
       <NextSeo
         title={` ${podcast?.trackName || "Episode"} - Podcast on Podcaster`}
-        description={`Listen the episodes of ${podcast?.collectionName}`}
+        description={`Listen the episodes of ${
+          podcast?.collectionName || "this episode"
+        }`}
         openGraph={{
           title: ` ${podcast?.trackName || "Episode"} - Podcast on Podcaster`,
-          description: `Listen the episodes of ${podcast?.collectionName}`,
+          description: `Listen the episodes of ${
+            podcast?.collectionName || "this episode"
+          }`,
         }}
         twitter={{
           handle: "@podcaster",
