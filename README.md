@@ -69,7 +69,7 @@ npm run test:dev
 
 ### Deployment
 
-Currently, the develop branch is deployed through Vercel at the following [URL](https://wheater-up-web-git-develop-devgonzalo.vercel.app)
+Currently, the develop branch is deployed through Vercel at the following [URL](https://podcaster-monorepo-web.vercel.app/)
 
 ## Useful Links
 
