@@ -53,10 +53,10 @@ const Page = ({ podcast }: Props) => {
     <>
       <NextSeo
         title="Podcast Details"
-        description={`Explore the fascinating world of this podcast through its ${podcast.resultCount} episodes. Join as they delve into  with insightful discussions and expert guests. Listen now for free and subscribe for more engaging content!`}
+        description={`Explore the fascinating world of this podcast through its ${podcast?.resultCount} episodes. Join as they delve into  with insightful discussions and expert guests. Listen now for free and subscribe for more engaging content!`}
         openGraph={{
           title: "Podcast Details",
-          description: `Explore the fascinating world of this podcast through its ${podcast.resultCount} episodes. Join as they delve into  with insightful discussions and expert guests. Listen now for free and subscribe for more engaging content!`,
+          description: `Explore the fascinating world of this podcast through its ${podcast?.resultCount} episodes. Join as they delve into  with insightful discussions and expert guests. Listen now for free and subscribe for more engaging content!`,
         }}
         twitter={{
           handle: "@podcaster",

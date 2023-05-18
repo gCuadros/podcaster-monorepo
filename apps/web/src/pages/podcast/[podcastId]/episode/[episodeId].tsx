@@ -3,6 +3,7 @@ import { ParsedUrlQuery } from "querystring";
 import { QueryClient, dehydrate } from "@tanstack/react-query";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { NextSeo } from "next-seo";
+import { EpisodeDto } from "types";
 
 import {
   fetchPodcastDetail,
@@ -14,6 +15,10 @@ import Episode from "containers/Episode";
 interface Params extends ParsedUrlQuery {
   podcastId: string;
   episodeId: string;
+}
+
+interface Props {
+  podcast: EpisodeDto;
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
@@ -46,39 +51,24 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   return {
     props: {
       dehydratedState: dehydrate(queryClient),
+      podcast,
     },
   };
 };
 
-const Page = () => {
+const Page = ({ podcast }: Props) => {
+  console.log(podcast);
   return (
     <>
       <NextSeo
-        title="Podcaster"
-        description="Join in this exciting episode. Gain valuable insights and unique perspectives as they discuss. Tune in now and join the conversation!"
+        title={` ${podcast?.trackName || "Episode"} - Podcast on Podcaster`}
+        description={`Listen the episodes of ${podcast?.collectionName}`}
         openGraph={{
-          title: "Podcaster.com",
-          description:
-            "Join in this exciting episode. Gain valuable insights and unique perspectives as they discuss. Tune in now and join the conversation!",
-          images: [
-            {
-              url: "/assets/logo.png",
-              width: 800,
-              height: 600,
-              alt: "Og Image Alt",
-              type: "image/jpeg",
-            },
-            {
-              url: "/assets/logo.png",
-              width: 900,
-              height: 800,
-              alt: "Og Image Alt Second",
-              type: "image/jpeg",
-            },
-          ],
-          siteName: "Podcaster",
+          title: ` ${podcast?.trackName || "Episode"} - Podcast on Podcaster`,
+          description: `Listen the episodes of ${podcast?.collectionName}`,
         }}
         twitter={{
+          handle: "@podcaster",
           site: "@podcaster",
           cardType: "summary_large_image",
         }}
