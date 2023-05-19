@@ -67,6 +67,15 @@ In the root directory
 npm run test:dev
 ```
 
+### unit Tests
+
+To execute tests, run the following command:
+
+```
+In apps/web root directory
+npm run test
+```
+
 ### Deployment
 
 Currently, the develop branch is deployed through Vercel at the following [URL](https://podcaster-monorepo-web.vercel.app/)
