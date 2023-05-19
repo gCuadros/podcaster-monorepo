@@ -6,8 +6,10 @@ This turborepo uses [npm](https://www.npmjs.com/) as a package manager. It inclu
 
 - `web`: a [Next.js](https://nextjs.org/) Podcast app
 - `ui`: a stub React component library shared by applications based on chakra-ui
-- `eslint-config-custom`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
+- `eslint-config-custom`: `eslint` configurations default
 - `eslint-config-custom`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`) for react projects
+- `jest-config-common`: `jest` configurations default
+- `jest-config-react`: `eslint` configurations for react projects
 - `tsconfig`: `tsconfig.json`s used throughout the monorepo
 - `types`: a stub React types library shared by applications
 - `web-tests`: a stub React component library shared by applications based on playwright
