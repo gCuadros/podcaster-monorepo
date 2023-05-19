@@ -58,7 +58,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 };
 
 const Page = ({ podcast }: Props) => {
-  console.log(podcast);
   return (
     <>
       <NextSeo
