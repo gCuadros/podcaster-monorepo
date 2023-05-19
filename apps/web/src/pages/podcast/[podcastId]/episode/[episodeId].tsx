@@ -53,11 +53,11 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       dehydratedState: dehydrate(queryClient),
       podcast,
     },
+    revalidate: 60 * 60 * 24, // 1 day
   };
 };
 
 const Page = ({ podcast }: Props) => {
-  console.log(podcast);
   return (
     <>
       <NextSeo
