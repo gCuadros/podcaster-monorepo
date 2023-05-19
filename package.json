@@ -13,8 +13,7 @@
     "lint": "turbo run lint -- --fix",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "prepare": "husky install",
-    "test:dev": "playwright test",
-    "test": "turbo run test"
+    "test:dev": "playwright test"
   },
   "devDependencies": {
     "eslint": "^8.38.0",
