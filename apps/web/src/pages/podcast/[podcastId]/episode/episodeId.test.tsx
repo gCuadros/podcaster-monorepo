@@ -1,7 +1,7 @@
 import fetch from "node-fetch";
-global.fetch = fetch;
 
 import { getStaticProps } from "./[episodeId]";
+global.fetch = fetch;
 
 describe("getStaticProps", () => {
   it("should return the expected data", async () => {
