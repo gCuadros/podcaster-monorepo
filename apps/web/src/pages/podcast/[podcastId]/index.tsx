@@ -3,6 +3,7 @@ import { ParsedUrlQuery } from "querystring";
 import { QueryClient, dehydrate } from "@tanstack/react-query";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { NextSeo } from "next-seo";
+import { PodcastContentsDto } from "types";
 
 import { fetchPodcastDetail } from "api/hooks/podcasts/usePodcastDetailsById";
 import { podcastDetailKey } from "api/hooks/podcasts/usePodcastDetailsById";
@@ -11,6 +12,10 @@ import Podcast from "containers/Podcast";
 
 interface Params extends ParsedUrlQuery {
   podcastId: string;
+}
+
+interface Props {
+  podcast?: PodcastContentsDto;
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
@@ -40,38 +45,26 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     props: {
       dehydratedState: dehydrate(queryClient),
     },
+    revalidate: 60 * 60 * 24, // 1 day
   };
 };
 
-const Page = () => {
+const Page = ({ podcast }: Props) => {
   return (
     <>
       <NextSeo
-        title="Podcaster"
-        description="Explore the fascinating world of [podcast name] with our latest episode. Join [host name] as they delve into [episode topic] with insightful discussions and expert guests. Listen now for free and subscribe for more engaging content!"
+        title="Podcast Details"
+        description={`Explore the fascinating world of this podcast through its ${
+          podcast?.resultCount || ""
+        } episodes. Join as they delve into  with insightful discussions and expert guests. Listen now for free and subscribe for more engaging content!`}
         openGraph={{
-          title: "Podcaster.com",
-          description:
-            "enjoy the fascinating world of this podcast with our latest episode. Listen now for free and subscribe for more engaging content!",
-          images: [
-            {
-              url: "/assets/logo.png",
-              width: 800,
-              height: 600,
-              alt: "Og Image Alt",
-              type: "image/jpeg",
-            },
-            {
-              url: "/assets/logo.png",
-              width: 900,
-              height: 800,
-              alt: "Og Image Alt Second",
-              type: "image/jpeg",
-            },
-          ],
-          siteName: "Podcaster",
+          title: "Podcast Details",
+          description: `Explore the fascinating world of this podcast through its ${
+            podcast?.resultCount || ""
+          } episodes. Join as they delve into  with insightful discussions and expert guests. Listen now for free and subscribe for more engaging content!`,
         }}
         twitter={{
+          handle: "@podcaster",
           site: "@podcaster",
           cardType: "summary_large_image",
         }}
